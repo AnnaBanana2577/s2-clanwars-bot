@@ -42,10 +42,10 @@ export async function paginate(interaction, pages) {
 
   const collector = interaction.channel.createMessageComponentCollector({
     componentType: ComponentType.Button,
-    time: 15000,
+    time: 60 * 1000,
   });
 
-  collector.on("collect", (i) => {
+  collector.on("collect", i => {
     if (i.user.id !== interaction.user.id) return;
     if (i.customId == nextButtonId) {
       if (currentPage == totalPages) return;
