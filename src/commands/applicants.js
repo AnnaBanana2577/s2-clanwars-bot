@@ -11,7 +11,7 @@ export const data = new SlashCommandBuilder()
 export async function execute({ interaction, db }) {
   await interaction.deferReply();
   const clans = await db.clans.all();
-  const leaderClan = clans.filter((c) => c.value.leader == interaction.user.id);
+  const leaderClan = clans.filter(c => c.value.leader == interaction.user.id);
   if (!leaderClan.length)
     return interaction.editReply(
       "You are not the leader of any clan. You can only view applicants for a clan you are the leader of."
@@ -22,13 +22,17 @@ export async function execute({ interaction, db }) {
       `No applicants for ${clan.id} clan currently.`
     );
   const applicants = splitArrayIntoChunks(clan.value.applicants, 10);
-  const pages = applicants.map((a) => generatePage(a, clan.id));
+  const pages = [];
+  for await (const a of applicants) {
+    const page = await generatePage(a, clan.id);
+    pages.push(page);
+  }
   paginate(interaction, pages);
 }
 
 async function generatePage(data, clanName) {
   const embed = new EmbedBuilder().setTitle(`Applicants for ${clanName} clan`);
-  const applicants = "";
+  let applicants = "";
   for await (const d of data) {
     const user = await client.users.fetch(d);
     applicants += `${user.username}\n`;
