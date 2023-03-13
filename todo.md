@@ -1,27 +1,28 @@
 ## Todo
 
-- Commands
+Commands
 
-  x register <playfabid>
-  x createclan <clanname>
-  x apply <clanname>
-  x clans
-  x applicants
-  x leave
-  x clan <clanname>
-  x makeleader <user>
-  x accept <user>
-  x deny <user>
+- [x] register <playfabid>
+- [x] createclan <clanname>
+- [x] apply <clanname>
+- [x] clans
+- [x] applicants
+- [x] leave
+- [x] clan <clanname>
+- [x] makeleader <user>
+- [x] accept <user>
+- [x] deny <user>
+- [x] ready
+- [x] cancel
+- [ ] status command
+- [ ] help command
 
-  - help command
-  - ready
-  - cancel
+Start match function
 
-- Start match function
+- [ ] Check for empty servers - if so StartMatch
+- [ ] If not, put in a queue
 
-  - Check for empty servers - if so StartMatch
-  - If not, put in a queue
+S2 Server
 
-- S2 Server
-  - Pause / Restart / Voting Script
-  - Script counts rounds (more than 2 mins), after 3 rounds posts back to bot
+- [ ] Pause / Restart / Voting Script
+- [ ] Script counts rounds (more than 2 mins), after 3 rounds posts back to bot
