@@ -14,8 +14,8 @@ Commands
 - [x] deny <user>
 - [x] ready
 - [x] cancel
-- [ ] status command
-- [ ] help command
+- [x] status command
+- [x] help command
 
 Start match function
 
