@@ -58,7 +58,22 @@ export async function execute({ interaction, db }) {
   showPage();
 }
 
-const basics = new EmbedBuilder().setTitle("Basics").setDescription("basics");
-const players = new EmbedBuilder().setTitle("Basics").setDescription("players");
-const leaders = new EmbedBuilder().setTitle("Basics").setDescription("leaders");
+const basics = new EmbedBuilder().setTitle("Basic Commands")
+  .setDescription(`\`/register <playfab id>\` to register\n
+\`/apply <clan name>\` to apply for a clan\n
+\`/clans\` to see a list of all clans\n
+\`/createclan <clan name>\` to create your own clan\n`);
+
+const players = new EmbedBuilder().setTitle("Player Commands")
+  .setDescription(`\`/ready\` to ready yourself for a clan war\n
+  \`/cancel\` to cancel your readiness for a clan war\n
+  \`/status\` to view a list of all ready players for a clan war\n
+  \`/leave\` to leave your clan`);
+
+const leaders = new EmbedBuilder().setTitle("Clan Leader Commands")
+  .setDescription(`\`/applicants\` to view a list of applicants who've applied for the clan\n
+  \`/accept <applicant>\` to accept an applicant into the clan\n
+  \`/deny\` to deny the applicant admission into the clan\n
+  \`/makeleader <clan member>\` to make someone else in the clan the leader`);
+
 const pages = { basics, players, leaders };
