@@ -7,14 +7,16 @@
   x apply <clanname>
   x clans
   x applicants
+  x leave
+  x clan <clanname>
 
-  - leave
   - makeleader <user>
   - accept <user>
   - deny <user>
 
   - ready
   - cancel
+  - help command
 
 - Start match function
 
