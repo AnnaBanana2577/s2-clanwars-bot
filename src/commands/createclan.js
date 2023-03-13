@@ -3,7 +3,7 @@ import { SlashCommandBuilder } from "discord.js";
 export const data = new SlashCommandBuilder()
   .setName("createclan")
   .setDescription("create a new clan")
-  .addStringOption(option =>
+  .addStringOption((option) =>
     option
       .setName("clanname")
       .setDescription("The name of the clan you wish to create")
@@ -31,7 +31,7 @@ export async function execute({ interaction, db }) {
   //Check if player is already the leader of a clan, or in another clan
   const clans = await db.clans.all();
   const duplicateClans = clans.filter(
-    c =>
+    (c) =>
       c.value.leader == interaction.user.id ||
       c.value.players.includes(interaction.user.id)
   );
@@ -44,6 +44,7 @@ export async function execute({ interaction, db }) {
   await db.clans.set(clanName, {
     leader: interaction.user.id,
     players: [],
+    applicants: [],
   });
 
   interaction.editReply(`${clanName} clan has been created!`);
