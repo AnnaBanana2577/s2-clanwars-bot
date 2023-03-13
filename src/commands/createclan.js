@@ -45,6 +45,7 @@ export async function execute({ interaction, db }) {
     leader: interaction.user.id,
     players: [],
     applicants: [],
+    readyPlayers: [],
   });
 
   interaction.editReply(
