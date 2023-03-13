@@ -7,6 +7,7 @@ export const data = new SlashCommandBuilder()
     option
       .setName("clanname")
       .setDescription("The name of the clan you wish to create")
+      .setMaxLength(17)
       .setRequired(true)
   );
 
