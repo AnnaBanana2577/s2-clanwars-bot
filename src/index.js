@@ -14,7 +14,7 @@ import fs from "fs";
 
 loadEnvVars();
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+export const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const database = new QuickDB();
 const commandData = [];
 const commandHandlers = new Map();
@@ -27,17 +27,17 @@ const db = {
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
-    activities: [{ name: "Soldat 2 Clan Wars", type: ActivityType.Competing }],
+    activities: [{ name: "Soldat 2", type: ActivityType.Competing }],
   });
   await loadCommands(path.resolve("src", "commands"));
   await registerCommands();
 });
 
-client.on("interactionCreate", async interaction => {
+client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
   const command = commandHandlers.get(interaction.commandName);
   if (!command) return;
-  command({ interaction, db }).catch(e => console.log(e));
+  command({ interaction, db }).catch((e) => console.log(e));
 });
 
 client.login(process.env.BOT_TOKEN);
