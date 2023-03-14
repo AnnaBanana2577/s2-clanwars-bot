@@ -1,9 +1,10 @@
 import { SlashCommandBuilder } from "discord.js";
+import { getReadiedClans } from "../lib/getReadiedClans.js";
 
 export const data = new SlashCommandBuilder()
   .setName("apply")
   .setDescription("apply to join a clan")
-  .addStringOption((option) =>
+  .addStringOption(option =>
     option
       .setName("clanname")
       .setDescription("the name of the clan you wish to apply to")
@@ -28,4 +29,8 @@ export async function execute({ interaction, db }) {
   interaction.editReply(
     `<@${interaction.user.id}> has applied to ${clanName} clan!`
   );
+  const readiedClans = await getReadiedClans(db);
+  if (readiedClans.length >= 2) {
+    //startmatch
+  }
 }
