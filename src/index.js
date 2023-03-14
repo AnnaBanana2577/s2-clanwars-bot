@@ -15,11 +15,12 @@ import fs from "fs";
 loadEnvVars();
 
 export const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+export let generalChannel;
 const database = new QuickDB();
 const commandData = [];
 const commandHandlers = new Map();
 
-const db = {
+export const db = {
   players: database.table("players"),
   clans: database.table("clans"),
 };
