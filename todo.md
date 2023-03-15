@@ -19,8 +19,8 @@ Commands
 
 Start match function
 
-- [ ] Check for empty servers - if so StartMatch
-- [ ] If not, put in a queue
+- [x] Check for empty servers - if so StartMatch
+- [x] If not, put in a queue
 
 S2 Server
 
