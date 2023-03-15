@@ -26,3 +26,12 @@ S2 Server
 
 - [ ] Pause / Restart / Voting Script
 - [ ] Script counts rounds (more than 2 mins), after 3 rounds posts back to bot
+
+Planning
+
+- Bot creates match object in DB
+  - Sets timeout for 30 mins - after 30 mins checks if server empty - if so deletes match
+- Server puts every joining player as spec - cant change teams
+  - sends to bot playfabId on server join - bot handles setting team via rcon
+- Server posts to bot when all players left - bot deletes match
+- Server posts to bot when a round ends - bot delets match after 3 rounds
