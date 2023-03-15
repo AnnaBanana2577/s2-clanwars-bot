@@ -28,7 +28,7 @@ export async function execute({ interaction, db }) {
     );
 
   clan.value.players.push(applicant.id);
-  clan.value.applicants = clan.value.applicant.filter(a => a !== applicant.id);
+  clan.value.applicants = clan.value.applicants.filter(a => a !== applicant.id);
   await db.clans.set(clan.id, clan.value);
   interaction.editReply(
     `<@${applicant.id}> has been accepted into the ${clan.id} clan!`
