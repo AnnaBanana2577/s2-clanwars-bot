@@ -1,0 +1,5 @@
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["sh", "-c", "BOT_TOKEN=$BOT_TOKEN APPLICATION_ID=$APPLICATION_ID GUILD_ID=$GUILD_ID RCON_PASS=$RCON_PASS npm start"]

@@ -1,4 +1,3 @@
-import { config as loadEnvVars } from "dotenv";
 import { QuickDB } from "quick.db";
 import {
   Client,
@@ -11,8 +10,6 @@ import {
 import path from "path";
 import url from "url";
 import fs from "fs";
-
-loadEnvVars();
 
 export const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 export let generalChannel;
@@ -41,7 +38,9 @@ client.on("interactionCreate", async (interaction) => {
   command({ interaction, db }).catch((e) => console.log(e));
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(
+  "MTAzOTk2NDQxNDE3MTk0MjkxMw.GIXGdl.tWh81TRoHsBvFmDOE-9_ne9gSA31CVyPsNKJhs"
+);
 
 // --------------------------------------
 
@@ -60,7 +59,9 @@ async function loadCommands(dir) {
 }
 
 async function registerCommands() {
-  const rest = new REST({ version: "10" }).setToken(process.env.BOT_TOKEN);
+  const rest = new REST({ version: "10" }).setToken(
+    "MTAzOTk2NDQxNDE3MTk0MjkxMw.GIXGdl.tWh81TRoHsBvFmDOE-9_ne9gSA31CVyPsNKJhs"
+  );
   await rest.put(
     Routes.applicationGuildCommands(
       process.env.APPLICATION_ID,

@@ -1,0 +1,11 @@
+version: "3"
+services:
+  discordbot:
+    build: discord-bot
+    volumes:
+      - ./json.sqlite:/app/json.sqlite
+    environment:
+      BOT_TOKEN: $BOT_TOKEN
+      APPLICATION_ID: $APPLICATION_ID
+      GUILD_ID: $GUILD_ID
+      RCON_PASS: $RCON_PASS
