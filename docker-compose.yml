@@ -9,3 +9,10 @@ services:
       APPLICATION_ID: $APPLICATION_ID
       GUILD_ID: $GUILD_ID
       RCON_PASS: $RCON_PASS
+    restart: always
+  s2server1:
+    build: s2-server
+    ports:
+      - "2500:2500"
+      - "2501:2501"
+    restart: always
