@@ -38,9 +38,7 @@ client.on("interactionCreate", async (interaction) => {
   command({ interaction, db }).catch((e) => console.log(e));
 });
 
-client.login(
-  "MTAzOTk2NDQxNDE3MTk0MjkxMw.GIXGdl.tWh81TRoHsBvFmDOE-9_ne9gSA31CVyPsNKJhs"
-);
+client.login(process.env.BOT_TOKEN);
 
 // --------------------------------------
 
@@ -59,9 +57,7 @@ async function loadCommands(dir) {
 }
 
 async function registerCommands() {
-  const rest = new REST({ version: "10" }).setToken(
-    "MTAzOTk2NDQxNDE3MTk0MjkxMw.GIXGdl.tWh81TRoHsBvFmDOE-9_ne9gSA31CVyPsNKJhs"
-  );
+  const rest = new REST({ version: "10" }).setToken(process.env.BOT_TOKEN);
   await rest.put(
     Routes.applicationGuildCommands(
       process.env.APPLICATION_ID,
